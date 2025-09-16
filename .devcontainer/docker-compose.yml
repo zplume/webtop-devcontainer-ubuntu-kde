@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   desktop:
     image: lscr.io/linuxserver/webtop:ubuntu-kde
@@ -13,3 +12,9 @@ services:
     shm_size: "1gb"
     volumes:
       - ../:/config/workspace:cached
+      - dotnet-config:/config/.dotnet
+    restart: unless-stopped
+
+volumes:
+  dotnet-config:
+    driver: local

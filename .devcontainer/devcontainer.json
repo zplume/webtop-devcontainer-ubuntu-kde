@@ -8,6 +8,10 @@
         "ghcr.io/devcontainers/features/azure-cli:1": {},
         "ghcr.io/devcontainers/features/dotnet:1": {}
     },
+    "containerEnv": {
+        "PUID": "1000",
+        "PGID": "1000"
+    },
     "customizations": {
         "vscode": {
             "extensions": [
@@ -33,5 +37,5 @@
     },
     "workspaceFolder": "/config/workspace",
     "overrideCommand": false,
-    "init": true
+    "postCreateCommand": "sudo mkdir -p /config/.dotnet && sudo chown -R $USER:$USER /config/.dotnet"
 }
