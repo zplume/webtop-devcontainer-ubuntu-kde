@@ -26,10 +26,7 @@
             },
             "extensions": [
                 "ms-vscode.powershell",
-                "ms-vscode.vscode-node-azure-pack",
                 "ms-dotnettools.csharp",
-                "GitHub.copilot",
-                "GitHub.copilot-chat",
                 "mhutchie.git-graph"
             ]
         }
