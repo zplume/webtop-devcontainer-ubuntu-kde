@@ -1,20 +1,20 @@
+name: ubuntu-kde-dev
 services:
   desktop:
+    container_name: ubuntu-kde-desktop
     image: lscr.io/linuxserver/webtop:ubuntu-kde
     security_opt:
       - seccomp:unconfined
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
       - SUBFOLDER=/
       - TITLE=DevContainer Desktop
     shm_size: "1gb"
     volumes:
       - ../:/config/workspace:cached
-      - dotnet-config:/config/.dotnet
     restart: unless-stopped
-
-volumes:
-  dotnet-config:
-    driver: local
+    gpus: all
+    runtime: nvidia
+    entrypoint: /init

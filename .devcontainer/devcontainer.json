@@ -6,14 +6,24 @@
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers/features/powershell:1": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {},
-        "ghcr.io/devcontainers/features/dotnet:1": {}
+        "ghcr.io/devcontainers/features/dotnet:1": {
+            "version": "8.0"
+        }
     },
     "containerEnv": {
-        "PUID": "1000",
-        "PGID": "1000"
+        "PUID": "0",
+        "PGID": "0"
     },
     "customizations": {
         "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "pwsh",
+                "terminal.integrated.profiles.linux": {
+                    "pwsh": {
+                        "path": "/usr/bin/pwsh"
+                    }
+                }
+            },
             "extensions": [
                 "ms-vscode.powershell",
                 "ms-vscode.vscode-node-azure-pack",
@@ -36,6 +46,5 @@
         }
     },
     "workspaceFolder": "/config/workspace",
-    "overrideCommand": false,
-    "postCreateCommand": "sudo mkdir -p /config/.dotnet && sudo chown -R $USER:$USER /config/.dotnet"
+    "overrideCommand": false
 }
