@@ -15,6 +15,4 @@ services:
     volumes:
       - ../:/config/workspace:cached
     restart: unless-stopped
-    gpus: all
-    runtime: nvidia
     entrypoint: /init
